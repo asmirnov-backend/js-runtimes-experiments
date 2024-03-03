@@ -1,8 +1,8 @@
-FROM node:20-alpine
+FROM node:21-alpine
 WORKDIR /app
 
 COPY . .
 
 ENV NODE_ENV=production
 
-ENTRYPOINT ["node", "main.js"]
+ENTRYPOINT ["node", "bench.js"]
