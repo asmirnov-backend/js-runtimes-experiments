@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "docker build --tag benchmark:latest .",
+    "build": "docker build --tag benchmark:node .",
     "run": "echo 1 | bash run.sh",
-    "run:multiple:times":  "echo 2 | bash run.sh",
+    "run:multiple:times":  "echo 10 | bash run.sh",
     "build:and:run": "npm run build && npm run run",
     "test": "echo \"$PWD\" "
   },
