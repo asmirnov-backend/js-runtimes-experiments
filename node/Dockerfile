@@ -5,4 +5,4 @@ COPY . .
 
 ENV NODE_ENV=production
 
-ENTRYPOINT ["node", "src/bench.js"]
+ENTRYPOINT ["node", "src/benchFactorial.js"]
