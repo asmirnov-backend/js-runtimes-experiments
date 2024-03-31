@@ -1,7 +1,12 @@
 "use strict"
-import { exec } from 'node:child_process';
-import { promisify } from 'node:util';
+import { factorial } from './factorial.js'
+import { appendFile } from 'node:fs'
 
-const execP = promisify(exec);
-
-await execP('deno run --allow-all src/main.js 1>> results/out.csv'); 
+performance.mark('start')
+factorial(1000)
+performance.mark('end')
+const measure = performance.measure('Measurement', 'start', 'end')
+appendFile('results/out.csv', measure.duration.toString() + '\r\n', function (err) {
+    if (err) throw err;
+    console.log('Saved!');
+});
