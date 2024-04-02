@@ -2,7 +2,7 @@
   "name": "bun",
   "type": "module",
   "scripts": {
-    "build": "docker build --tag benchmark:bun .",
+    "build": "cp -r ../shared src/ && docker build --tag benchmark:bun .",
     "run": "echo 1 | bash run.sh",
     "run:multiple:times":  "echo 100 | bash run.sh",
     "build:and:run": "npm run build && npm run run",

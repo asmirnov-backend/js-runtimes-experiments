@@ -5,4 +5,4 @@ COPY . .
 
 ENV NODE_ENV=production
 
-ENTRYPOINT ["deno", "run", "--allow-all", "src/benchFactorial.js"]
+ENTRYPOINT ["deno", "run", "--allow-all", "src/shared/benchFactorial.js"]

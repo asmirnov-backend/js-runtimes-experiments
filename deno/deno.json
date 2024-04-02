@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "build": "docker build --tag benchmark:deno .",
+    "build": "cp -r ../shared src/ && docker build --tag benchmark:deno .",
     "run": "echo 1 | bash run.sh",
     "run:multiple:times":  "echo 100 | bash run.sh",
     "build:and:run": "deno task build && deno task run",
