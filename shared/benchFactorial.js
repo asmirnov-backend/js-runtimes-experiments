@@ -2,4 +2,4 @@
 import { factorial } from './factorial.js'
 import { bench } from './bench.js'
 
-bench(factorial, 1000)
+await bench(factorial, 1000)
