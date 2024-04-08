@@ -1,0 +1,3 @@
+FILEPATH: src/shared/benchAsyncArray.js
+NUMBER_OF_LAUNCHES: 3
+RUNTIME_ENVIROMENT_NAME: deno
