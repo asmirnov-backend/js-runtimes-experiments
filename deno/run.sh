@@ -1,5 +1,5 @@
 read number
 
 for ((i=0; i<$number; i++)); do
-  docker run --rm -v "$PWD":/app benchmark:deno
+  docker run --rm -v "$PWD":/app --env FILEPATH="src/shared/benchFactorial.js" benchmark:deno
 done

@@ -1,5 +1,5 @@
 read number
 
 for ((i=0; i<$number; i++)); do
-  docker run --rm -v "$PWD":/app benchmark:bun
+  docker run --rm -v "$PWD":/app --env FILEPATH="src/shared/benchFactorial.js" benchmark:bun
 done

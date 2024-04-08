@@ -5,4 +5,5 @@ COPY . .
 
 ENV NODE_ENV=production
 
-ENTRYPOINT ["deno", "run", "--allow-all", "src/shared/benchFactorial.js"]
+RUN chmod +x ./entrypoint.sh
+ENTRYPOINT ["sh", "./entrypoint.sh"]

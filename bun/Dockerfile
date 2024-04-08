@@ -1,8 +1,9 @@
-FROM chainguard/bun
+FROM oven/bun:1.1.2-alpine
 WORKDIR /app
 
 COPY . .
 
 ENV NODE_ENV=production
 
-ENTRYPOINT ["bun", "src/shared/benchFactorial.js"]
+RUN chmod +x ./entrypoint.sh
+ENTRYPOINT ["sh", "./entrypoint.sh"]
