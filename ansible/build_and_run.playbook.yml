@@ -1,27 +1,15 @@
 - hosts: localhost
   gather_facts: false
   become: false
-  vars_files: ./vars.yml
+  vars:
+    FILEPATH: src/shared/asyncArray.bench.js
+    NUMBER_OF_LAUNCHES: 10
   tasks:
-    - name: Prepare shared
-      copy:
-        src: ../shared
-        dest: "../{{ RUNTIME_ENVIROMENT_NAME }}/src/"
-
-    - name: Build an image
-      community.docker.docker_image:
-        build:
-          path: "../{{ RUNTIME_ENVIROMENT_NAME }}"
-        name: benchmark
-        tag: "{{ RUNTIME_ENVIROMENT_NAME }}"
-        source: build
-
-    - name: Run container
-      community.docker.docker_container:
-        name: "benchmark-{{ RUNTIME_ENVIROMENT_NAME }}"
-        image: "benchmark:{{ RUNTIME_ENVIROMENT_NAME }}"
-        env:
-          FILEPATH: "{{ FILEPATH }}"
-        volumes:
-          - "../{{ RUNTIME_ENVIROMENT_NAME }}:/app"
-      loop: "{{ query('sequence', 'start=1 end={{ NUMBER_OF_LAUNCHES }}') }}"
+    - name: play
+      include_tasks: "build_and_run.tasks.yml"
+      loop: 
+        - node
+        - deno
+        - bun
+      loop_control:
+        loop_var: RUNTIME_ENVIROMENT_NAME
