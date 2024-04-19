@@ -2,8 +2,8 @@
   gather_facts: false
   become: false
   vars:
-    FILEPATH: src/shared/asyncArray.bench.js
-    NUMBER_OF_LAUNCHES: 10
+    FILEPATH: src/shared/quickSort.bench.js
+    NUMBER_OF_LAUNCHES: 3
   tasks:
     - name: play
       include_tasks: "build_and_run.tasks.yml"
