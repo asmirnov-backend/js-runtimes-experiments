@@ -1,2 +1,2 @@
-[main]
+[target_host]
 0.0.0.0 ansible_user=root ansible_ssh_pass=rootPass ansible_sudo_pass=rootPass
